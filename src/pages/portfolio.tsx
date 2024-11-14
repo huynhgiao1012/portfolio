@@ -1,5 +1,4 @@
-import { type FC } from "react";
-import type { StaticImageData } from "next/image";
+import { type FC, useState } from "react";
 
 import {
   animated,
@@ -7,18 +6,11 @@ import {
   useSpringRef,
   useTransition,
 } from "@react-spring/web";
-import Img1 from "@src/assets/images/Img1.jpg";
-import Img2 from "@src/assets/images/Img2.jpg";
-import Img3 from "@src/assets/images/Img3.jpg";
-import Img4 from "@src/assets/images/Img4.jpg";
-import Img5 from "@src/assets/images/Img5.jpg";
-import Img6 from "@src/assets/images/Img6.jpg";
-import Img7 from "@src/assets/images/Img7.jpg";
-import Img8 from "@src/assets/images/Img8.jpg";
-import Img9 from "@src/assets/images/Img9.jpg";
 import Card from "@src/components/atoms/Card";
 import PortfolioItem from "@src/components/atoms/PortfolioItem";
 import Title from "@src/components/atoms/Title";
+import PortfolioModal from "@src/components/molecules/PortfolioModal";
+import { PORTFOLIO } from "@src/constants/portfolio";
 import { useDirectionAwareHover } from "@src/hooks/useDirectionAwareHover";
 import { cn } from "@src/utils/common";
 
@@ -26,40 +18,9 @@ interface Props {
   className?: string;
 }
 
-type PortfolioType = {
-  img: StaticImageData;
-};
-
 const Portfolio: FC<Props> = ({ className = "" }) => {
-  const PORTFOLIO: PortfolioType[] = [
-    {
-      img: Img1,
-    },
-    {
-      img: Img2,
-    },
-    {
-      img: Img3,
-    },
-    {
-      img: Img4,
-    },
-    {
-      img: Img5,
-    },
-    {
-      img: Img6,
-    },
-    {
-      img: Img7,
-    },
-    {
-      img: Img8,
-    },
-    {
-      img: Img9,
-    },
-  ];
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState(0);
 
   useDirectionAwareHover("hover");
 
@@ -78,15 +39,6 @@ const Portfolio: FC<Props> = ({ className = "" }) => {
       <Title title="Portfolio" description="My Best Works" />
       <animated.div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
         {transitions((style, item) => (
-          // <animated.div
-          //   style={{
-          //     width: "100%",
-          //     height: "100%",
-          //     ...style,
-          //   }}
-          // >
-          //   <PortfolioItem image={item.img} title="Project" />
-          // </animated.div>
           <PortfolioItem
             as={animated.div}
             style={{
@@ -95,10 +47,21 @@ const Portfolio: FC<Props> = ({ className = "" }) => {
               ...style,
             }}
             image={item.img}
-            title="Project"
+            title={item.label}
+            onClick={() => {
+              setOpen(!open);
+              setId(item.id);
+            }}
           />
         ))}
       </animated.div>
+      <PortfolioModal
+        id={id}
+        isOpen={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
     </Card>
   );
 };

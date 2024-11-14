@@ -54,7 +54,15 @@
     "tailwindcss/no-custom-classname": [
       "warn",
       {
-        "whitelist": ["avatar", "hover", "inner-card", "sidebar"]
+        "whitelist": [
+          "avatar",
+          "hover",
+          "inner-card",
+          "sidebar",
+          "modal-content",
+          "embla",
+          "embla__container"
+        ]
       }
     ]
   },

@@ -1,5 +1,6 @@
-import type { FC, ReactNode } from "react";
+import { type FC, type ReactNode } from "react";
 
+import { animated } from "@react-spring/web";
 import IconCSS from "@src/assets/images/CSS.svg";
 import IconHtml from "@src/assets/images/HTML.svg";
 import IconJS from "@src/assets/images/JS.svg";
@@ -17,6 +18,7 @@ import SkillItem from "@src/components/atoms/SkillItem";
 import SubTitle from "@src/components/atoms/SubTitle";
 import Title from "@src/components/atoms/Title";
 import { RESUME_EDUCATION, RESUME_EXPERIENCE } from "@src/constants/resume";
+import { useChainAnimation } from "@src/hooks/useChainAnimation";
 import { cn } from "@src/utils/common";
 
 interface Props {
@@ -72,44 +74,101 @@ const Resume: FC<Props> = ({ className = "" }) => {
     },
   ];
 
+  const { transitions } = useChainAnimation(RESUME_EDUCATION, {
+    from: { opacity: 0, transform: "translateY(20%)" },
+    enter: { opacity: 1, transform: "translateY(0%)" },
+    trail: 750 / RESUME_EDUCATION.length,
+  });
+
+  const { transitions: transitionBtn } = useChainAnimation([1], {
+    from: { opacity: 0, transform: "translateY(20%)" },
+    enter: { opacity: 1, transform: "translateY(0%)" },
+    trail: 750,
+    delay: 500,
+  });
+
+  const { transitions: transitionsEx } = useChainAnimation(RESUME_EXPERIENCE, {
+    from: { opacity: 0, transform: "translateY(-20%)" },
+    enter: { opacity: 1, transform: "translateY(0%)" },
+    trail: 750 / RESUME_EXPERIENCE.length,
+    delay: 800,
+  });
+
+  const { transitions: transitionSkill } = useChainAnimation(SKILLS, {
+    from: { opacity: 0, scale: 0 },
+    enter: { opacity: 1, scale: 1 },
+    trail: 750 / SKILLS.length,
+    delay: 1000,
+  });
+
   return (
-    <Card className={cn("overflow-y-auto", "motion-preset-fade", className)}>
+    <Card className={cn("overflow-y-hidden", "motion-preset-fade", className)}>
       <Title title="Resume" description="6 Years of Experience" />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
         <div className="">
           <SubTitle text="Education" />
-          {RESUME_EDUCATION.map((item, index) => (
-            <ResumeItem
-              key={index}
-              time={item.time}
-              label={item.label}
-              place={item.place}
-              content={item.content}
-            />
+          {transitions((style, item) => (
+            <animated.div
+              style={{
+                ...style,
+              }}
+            >
+              <ResumeItem
+                key=""
+                time={item.time}
+                label={item.label}
+                place={item.place}
+                content={item.content}
+              />
+            </animated.div>
+          ))}
+          {transitionBtn((style) => (
+            <animated.div
+              style={{
+                ...style,
+              }}
+            >
+              <Button
+                label="Download CV"
+                onClick={handleDownload}
+                className="mt-10"
+              />
+            </animated.div>
           ))}
         </div>
         <div>
           <SubTitle text="Experience" />
-          {RESUME_EXPERIENCE.map((item, index) => (
-            <ResumeItem
-              key={index}
-              time={item.time}
-              label={item.label}
-              place={item.place}
-              content={item.content}
-            />
+          {transitionsEx((style, item) => (
+            <animated.div
+              style={{
+                ...style,
+              }}
+            >
+              <ResumeItem
+                key=""
+                time={item.time}
+                label={item.label}
+                place={item.place}
+                content={item.content}
+              />
+            </animated.div>
           ))}
         </div>
         <div>
           <SubTitle text="Coding Skills" />
           <div className="grid grid-cols-3 gap-2">
-            {SKILLS.map((item, index) => (
-              <SkillItem key={index} label={item.label} image={item.icon} />
+            {transitionSkill((style, item) => (
+              <animated.div
+                style={{
+                  ...style,
+                }}
+              >
+                <SkillItem key="" label={item.label} image={item.icon} />
+              </animated.div>
             ))}
           </div>
         </div>
       </div>
-      <Button label="Download CV" onClick={handleDownload} className="mt-10" />
     </Card>
   );
 };

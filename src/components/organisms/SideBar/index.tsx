@@ -89,7 +89,14 @@ const Sidebar: FC<Props> = ({ className = "", onClose }) => {
           height={80}
           className="border-2 border-white"
         />
-        <p className="text-[1.5rem] font-bold text-white">GIAO LE</p>
+        <p
+          className={cn(
+            "cursor-pointer text-[1.5rem] font-bold text-white hover:text-orange-500",
+            "transition-all duration-300 ease-in-out"
+          )}
+        >
+          GIAO LE
+        </p>
       </div>
       <div
         ref={ref}
