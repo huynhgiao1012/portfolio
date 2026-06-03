@@ -12,15 +12,12 @@ import DAO9 from "@src/assets/images/DAO9.png";
 import DAO10 from "@src/assets/images/DAO10.png";
 import DAO11 from "@src/assets/images/DAO11.png";
 import DAOBg from "@src/assets/images/DAOBg.png";
-import Img1 from "@src/assets/images/Img1.jpg";
-import Img2 from "@src/assets/images/Img2.jpg";
-import Img3 from "@src/assets/images/Img3.jpg";
-import Img4 from "@src/assets/images/Img4.jpg";
-import Img5 from "@src/assets/images/Img5.jpg";
-import Img6 from "@src/assets/images/Img6.jpg";
-import Img7 from "@src/assets/images/Img7.jpg";
-import Img8 from "@src/assets/images/Img8.jpg";
-import Img9 from "@src/assets/images/Img9.jpg";
+import Driver5 from "@src/assets/images/DP.png";
+import Driver1 from "@src/assets/images/Driver1.png";
+import Driver2 from "@src/assets/images/Driver2.png";
+import FA1 from "@src/assets/images/FA1.png";
+import FA2 from "@src/assets/images/FA2.jpeg";
+import LAIP from "@src/assets/images/LAIP2.png";
 import Train1 from "@src/assets/images/Train1.png";
 import Train2 from "@src/assets/images/Train2.png";
 import Train3 from "@src/assets/images/Train3.png";
@@ -96,106 +93,64 @@ export const PORTFOLIO: PortfolioType[] = [
   },
   {
     id: 3,
-    label: "Project3",
+    label: "LAIP - Mobile UI",
     description:
-      "Duis gravida orci ut mi consectetur, sed fermentum lectus ullamcorper.",
-    date: "10 March, 2018",
-    link: "www.project-site3.com",
-    technology: ["Angular", "TypeScript", "Firebase"],
-    img: Img3,
-    projectImg: [Img1, Img2, Img3],
+      "Developed mobile application features using React Native for internal business operations. Built responsive interfaces for documentation and FAQ modules, implemented VietQR-based QR code functionalities, and collaborated with team members to deliver user-friendly features and improve application quality.",
+    date: "August 2023 - October 2023",
+    link: "",
+    technology: ["React Native", "NodeJS", "ExpressJS"],
+    img: LAIP,
+    projectImg: [LAIP],
   },
   {
     id: 4,
-    label: "Project4",
-    description: "Vestibulum non felis et orci viverra pharetra eu eu augue.",
-    date: "22 June, 2019",
-    link: "www.project-site4.com",
-    technology: ["Vue.js", "Vuetify", "Node.js"],
-    img: Img4,
-    projectImg: [Img1, Img2, Img3],
+    label: "Dr**** Project -- Car Booking Service Web Application",
+    description:
+      "Developed a responsive car-booking platform using React and TypeScript, with a focus on delivering a mobile-first user experience. Implemented core features including ride-booking workflows, booking management, and booking history. Integrated RESTful APIs to support booking operations, user data management, and real-time updates. Built reusable UI components and responsive layouts to enhance consistency, scalability, and maintainability across the application. Collaborated closely with cross-functional team members to deliver new features, troubleshoot issues, and continuously improve product quality and user experience.",
+    date: "August, 2024",
+    link: "",
+    technology: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "RESTful API",
+      "Zustand",
+    ],
+    img: Driver5,
+    projectImg: [Driver1, Driver2],
   },
   {
     id: 5,
-    label: "Project5",
+    label: "Fi****** Advisory Assist (App)",
     description:
-      "Cras maximus felis ut elit facilisis, eget cursus libero feugiat.",
-    date: "19 September, 2020",
-    link: "www.project-site5.com",
-    technology: ["Bootstrap", "SASS", "JavaScript"],
-    img: Img5,
-    projectImg: [Img1, Img2, Img3],
+      "Developed frontend features for an AI-powered meeting assistant platform using React and TypeScript. Built meeting recording, media management, and AI-driven experiences including transcription, summaries, compliance reviews, and interactive chat. Developed analytics dashboards, data visualizations, and tenant-based management features while delivering responsive, scalable, and user-friendly interfaces.",
+    date: "2025",
+    link: "",
+    technology: [
+      "ReactJS",
+      "TypeScript",
+      "Tailwind CSS",
+      "Tanstack Query",
+      "Radix UI",
+    ],
+    img: FA1,
+    projectImg: [FA1],
   },
   {
     id: 6,
-    label: "Project6",
-    description: "Mauris quis nisl a eros tincidunt ullamcorper.",
-    date: "3 December, 2020",
-    link: "www.project-site6.com",
-    technology: ["React", "Redux", "SASS"],
-    img: Img6,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 7,
-    label: "Project7",
+    label: "Fi****** Advisory Assist (CMS)",
     description:
-      "Aliquam erat volutpat. Morbi at magna vitae libero fermentum posuere.",
-    date: "10 January, 2021",
-    link: "www.project-site7.com",
-    technology: ["Python", "Flask", "SQLite"],
-    img: Img7,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 8,
-    label: "Project8",
-    description:
-      "Nulla viverra orci nec augue sodales, vel aliquam ante tempor.",
-    date: "17 March, 2021",
-    link: "www.project-site8.com",
-    technology: ["Swift", "Xcode", "CoreData"],
-    img: Img8,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 9,
-    label: "Project9",
-    description: "Sed tincidunt urna at sollicitudin egestas.",
-    date: "25 August, 2021",
-    link: "www.project-site9.com",
-    technology: ["Django", "PostgreSQL", "HTML5"],
-    img: Img9,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 10,
-    label: "Project10",
-    description: "Donec fringilla ex eget turpis condimentum vehicula.",
-    date: "5 December, 2022",
-    link: "www.project-site10.com",
-    technology: ["Java", "Spring Boot", "MySQL"],
-    img: Img7,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 11,
-    label: "Project11",
-    description: "Donec fringilla ex eget turpis condimentum vehicula.",
-    date: "5 December, 2022",
-    link: "www.project-site10.com",
-    technology: ["Java", "Spring Boot", "MySQL"],
-    img: Img8,
-    projectImg: [Img1, Img2, Img3],
-  },
-  {
-    id: 12,
-    label: "Project12",
-    description: "Donec fringilla ex eget turpis condimentum vehicula.",
-    date: "5 December, 2022",
-    link: "www.project-site10.com",
-    technology: ["Java", "Spring Boot", "MySQL"],
-    img: Img9,
-    projectImg: [Img1, Img2, Img3],
+      "Developed administrative and tenant management features for an AI-powered platform using React and TypeScript. Built user, group, permission, and configuration management modules, along with dashboards for monitoring AI processing tasks and system performance. Implemented advanced data management capabilities including bulk actions, CSV import/export, drag-and-drop configuration interfaces, feature toggles, and customizable AI templates, while integrating RESTful APIs and optimizing administrative workflows.",
+    date: "2025",
+    link: "",
+    technology: [
+      "ReactJS",
+      "TypeScript",
+      "Tailwind CSS",
+      "Tanstack Query",
+      "Radix UI",
+    ],
+    img: FA2,
+    projectImg: [FA2],
   },
 ];

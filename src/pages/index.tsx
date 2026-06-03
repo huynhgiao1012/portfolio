@@ -4,7 +4,7 @@ export default function Home() {
       <h1 className="motion-preset-bounce text-[1.875rem] font-bold text-orange-500 motion-duration-300 sm:text-[4.375rem]">
         HUYNH GIAO LE
       </h1>
-      <p className="motion-preset-focus text-[1rem] text-dark motion-duration-300 sm:text-[1.3125rem]">
+      <p className="motion-preset-focus text-[1rem] font-semibold text-dark motion-duration-300 sm:text-[1.875rem]">
         Frontend-Developer
       </p>
     </div>
