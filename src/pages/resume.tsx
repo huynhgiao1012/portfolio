@@ -4,7 +4,6 @@ import { animated } from "@react-spring/web";
 import IconCSS from "@src/assets/images/CSS.svg";
 import IconHtml from "@src/assets/images/HTML.svg";
 import IconJS from "@src/assets/images/JS.svg";
-import IconLadle from "@src/assets/images/LADLE.svg";
 import IconNext from "@src/assets/images/Next.svg";
 import IconReact from "@src/assets/images/React.svg";
 import IconSASS from "@src/assets/images/SASS.svg";
@@ -29,7 +28,14 @@ type Skill = {
   icon: ReactNode;
 };
 const Resume: FC<Props> = ({ className = "" }) => {
-  const handleDownload = () => {};
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Giao_Le.pdf";
+    link.download = "Giao_Le.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const SKILLS: Skill[] = [
     {
@@ -68,10 +74,6 @@ const Resume: FC<Props> = ({ className = "" }) => {
       label: "Tailwind",
       icon: <IconTailwind className="size-12" />,
     },
-    {
-      label: "Ladle",
-      icon: <IconLadle className="size-12 invert" />,
-    },
   ];
 
   const { transitions } = useChainAnimation(RESUME_EDUCATION, {
@@ -103,7 +105,7 @@ const Resume: FC<Props> = ({ className = "" }) => {
 
   return (
     <Card className={cn("overflow-y-hidden", "motion-preset-fade", className)}>
-      <Title title="Resume" description="6 Years of Experience" />
+      <Title title="Resume" description="2 Years of Experience" />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
         <div className="">
           <SubTitle text="Education" />

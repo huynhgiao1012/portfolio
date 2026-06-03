@@ -16,7 +16,7 @@ const Title: FC<Props> = ({ className = "", title, description }) => {
         className
       )}
     >
-      <div className="flex flex-col items-center sm:items-end">
+      <div className="flex flex-col items-center sm:items-center">
         <h1 className="text-[3.125rem] font-bold text-gray-500 ">{title}</h1>
         <h5 className="bg-orange-500 px-2.5 font-extralight text-white">
           {description}

@@ -31,3 +31,8 @@ declare module "*.jpeg" {
   const content: StaticImageData;
   export default content;
 }
+
+declare module "*.css" {
+  const content: string;
+  export default content;
+}

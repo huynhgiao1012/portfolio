@@ -10,7 +10,7 @@ import {
   IdentificationIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
-import Avt from "@src/assets/images/Avt.jpg";
+import Avt from "@src/assets/images/avatar.jpg";
 import { useOnClickOutside } from "@src/hooks/useOnclickOutside";
 import { cn } from "@src/utils/common";
 
@@ -85,9 +85,9 @@ const Sidebar: FC<Props> = ({ className = "", onClose }) => {
         <Image
           src={Avt}
           alt="MyImage"
-          width={80}
-          height={80}
-          className="border-2 border-white"
+          width={100}
+          height={100}
+          className="rounded-md object-cover"
         />
         <p
           className={cn(

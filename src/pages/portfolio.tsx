@@ -37,7 +37,7 @@ const Portfolio: FC<Props> = ({ className = "" }) => {
   return (
     <Card className={cn("motion-preset-slide-right overflow-auto", className)}>
       <Title title="Portfolio" description="My Best Works" />
-      <animated.div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
+      <animated.div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {transitions((style, item) => (
           <PortfolioItem
             as={animated.div}

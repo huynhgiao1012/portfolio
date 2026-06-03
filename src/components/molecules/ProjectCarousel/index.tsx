@@ -30,7 +30,11 @@ const ProjectCarousel: FC<Props> = ({ className = "", id }) => {
           {project &&
             project.projectImg.map((item, index) => (
               <div className="embla__slide" key={index}>
-                <Image src={item} alt="Image" className="size-full" />
+                <Image
+                  src={item}
+                  alt="Image"
+                  className="size-full max-h-[90%]"
+                />
               </div>
             ))}
         </div>
@@ -40,9 +44,9 @@ const ProjectCarousel: FC<Props> = ({ className = "", id }) => {
               key={index}
               onClick={() => onDotButtonClick(index)}
               className={cn(
-                "ml-1 size-3 rounded-full border border-gray-400 bg-gray-70",
+                "ml-2 size-2.5 rounded-full bg-orange-500/20 transition-colors",
                 {
-                  "bg-gray-400": selectedIndex == index,
+                  "bg-orange-500": selectedIndex == index,
                 }
               )}
             />

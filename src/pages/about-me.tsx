@@ -2,7 +2,7 @@ import { type FC } from "react";
 import Image from "next/image";
 
 import { animated } from "@react-spring/web";
-import Icon from "@src/assets/images/Ava.png";
+import Icon from "@src/assets/images/avatar.jpg";
 import Card from "@src/components/atoms/Card";
 import Title from "@src/components/atoms/Title";
 import SocialGroup from "@src/components/molecules/SocialGroup";
@@ -59,13 +59,11 @@ const AboutMe: FC<Props> = ({ className = "" }) => {
   });
 
   return (
-    <Card
-      className={cn(
-        "overflow-auto motion-duration-[1.00s] motion-translate-x-in-[100%] motion-translate-y-in-[0%]",
-        className
-      )}
-    >
-      <Title title="About Me" description="Artist, Thinker, Creative Doer" />
+    <Card className={cn("motion-preset-slide-right", className)}>
+      <Title
+        title="About Me"
+        description="Learner, Thinker, Creative Developer"
+      />
       <div className="grid grid-cols-1 gap-[1.875rem] px-[0.9375rem] sm:grid-cols-2 md:grid-cols-3">
         {transitions((style) => (
           <animated.div
@@ -77,7 +75,7 @@ const AboutMe: FC<Props> = ({ className = "" }) => {
               ref={ref}
               src={Icon}
               alt="MyAvt"
-              className="avatar w-[12.5rem] sm:w-full"
+              className="avatar mx-auto w-[12.5rem] sm:w-full"
             />
           </animated.div>
         ))}
@@ -92,18 +90,19 @@ const AboutMe: FC<Props> = ({ className = "" }) => {
               <h3 className="font-bold">I am Frontend Developer</h3>
               <br />
               <p className="text-justify text-[0.75rem]">
-                As a student in Computer Science, I have had certain experiences
-                developing a website or a mobile application through some
-                projects that I have carried out during my time in university
-                and internship.
+                Frontend Developer with nearly 2 years of experience building
+                responsive and scalable web applications using React.js,
+                TypeScript, and modern frontend technologies.
               </p>
               <br />
               <p className="text-justify text-[0.75rem]">
-                Therefore, I desire to find a job that helps me improve my
-                professional skills while putting my acquired skills and
-                training into activities that benefit the hiring company.
-                Personally, I can self-study and have some soft skills that
-                enable me to work well in a team.
+                Experienced in developing AI-powered products, implementing
+                complex business workflows, integrating RESTful APIs, and
+                creating reusable UI components. Proficient in React.js,
+                Next.js, and basic Vue.js with a strong focus on maintainable
+                code, and user experience. Adept at collaborating with
+                cross-functional teams in Agile environments to deliver
+                high-quality software solutions.
               </p>
             </animated.div>
           ))}

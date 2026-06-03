@@ -56,39 +56,68 @@ const PortfolioModal: FC<Props> = ({ isOpen, onClose, id }) => {
           "motion-preset-expand overflow-auto px-10 py-8 "
         )}
       >
-        <div className="flex cursor-pointer items-center justify-center text-white [&>svg]:size-[1.875rem]">
-          <ChevronLeftIcon onClick={handlePrev} />
-          <ChevronRightIcon onClick={handleNext} />
-          <XMarkIcon onClick={onClose} />
+        <div className="flex cursor-pointer items-center justify-end gap-2 text-white [&>svg]:size-[1.875rem]">
+          <ChevronLeftIcon
+            className={cn(
+              "cursor-pointer rounded bg-orange-400/40 p-2 hover:bg-orange-400",
+              "transition-all duration-300 ease-in-out"
+            )}
+            onClick={handlePrev}
+          />
+          <ChevronRightIcon
+            className={cn(
+              "cursor-pointer rounded bg-orange-400/40 p-2 hover:bg-orange-400",
+              "transition-all duration-300 ease-in-out"
+            )}
+            onClick={handleNext}
+          />
+          <XMarkIcon
+            className={cn(
+              "cursor-pointer rounded bg-orange-400/40 p-2 hover:bg-orange-400",
+              "transition-all duration-300 ease-in-out"
+            )}
+            onClick={onClose}
+          />
         </div>
         <h1 className="my-4 text-center text-[2rem] font-bold text-white">
           {project.label}
         </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <ProjectCarousel id={projectId} className="sm:h-[21.875rem]" />
+            <ProjectCarousel id={projectId} className="sm:h-[90%]" />
           </div>
           <div className="mb-8 mt-2 sm:mt-0">
             <SubTitle text="Description" />
             <ul className="flex flex-col gap-2 text-white">
               <li className="flex items-center gap-2 [&>svg]:size-5">
                 <UserIcon />
-                <span>Alex Smith</span>
+                <span>Giao Le</span>
               </li>
-              <li className="flex items-center gap-2 text-orange-500 [&>svg]:size-5">
-                <GlobeAsiaAustraliaIcon />
-                <Link href={project.link} target="_blank">
-                  {project.link}
-                </Link>
-              </li>
+              {project.link !== "" && (
+                <li className="flex items-center gap-2 text-orange-500 [&>svg]:size-5">
+                  <GlobeAsiaAustraliaIcon />
+                  <Link href={project.link} target="_blank">
+                    {project.link}
+                  </Link>
+                </li>
+              )}
               <li className="flex items-center gap-2 [&>svg]:size-5">
                 <CalendarDaysIcon />
                 <span>{project.date}</span>
               </li>
             </ul>
-            <p className="py-5 text-white">{project.description}</p>
+            <p className="py-5 text-justify text-white">
+              {project.description}
+            </p>
+            {project.link === "" && (
+              <p className="mb-4 text-justify text-[0.875rem] font-medium italic text-orange-500">
+                Project links are not provided for certain projects due to
+                client confidentiality and non-disclosure agreement (NDA)
+                obligations.
+              </p>
+            )}
             <SubTitle text="Technology" />
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2 pl-1">
               {project &&
                 project.technology.map((item, index) => (
                   <TechItem key={index} text={item} />
